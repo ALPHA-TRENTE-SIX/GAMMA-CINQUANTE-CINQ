@@ -1,0 +1,32 @@
+mount}",symbol:"৳",offset:100,name:"Bangladeshi Taka"},BGN:{iso:"BGN",format:"{symbol}{amount}",symbol:"лв.",offs
+et:100,name:"Bulgarian Lev"},BHD:{iso:"BHD",format:"{symbol}{amount}",symbol:"د.ب.",offset:100,name:"Bahraini Di
+nar"},BIF:{iso:"BIF",format:"{symbol}{amount}",symbol:"FBu",offset:1,name:"Burundian Franc"},BMD:{iso:"BMD",format
+:"{symbol}{amount}",symbol:"$",offset:100,name:"Bermudian Dollar"},BND:{iso:"BND",format:"{symbol}{amount}",symbol:
+"B$",offset:100,name:"Brunei Dollar"},BOB:{iso:"BOB",format:"{symbol}{amount}",symbol:"Bs.",offset:100,name:
+"Bolivian Boliviano"},BRL:{iso:"BRL",format:"{symbol}{amount}",symbol:"R$",offset:100,name:"Brazilian Real"},
+BSD:{iso:"BSD",format:"{symbol}{amount}",symbol:"B$",offset:100,name:"Bahamian Dollar"},BTN:{iso:"BTN",format:"{
+symbol}{amount}",symbol:"Nu.",offset:100,name:"Bhutanese Ngultrum"},BWP:{iso:"BWP",format:"{symbol}{amount}",symbol:"P"
+,offset:100,name:"Botswanan Pula"},BYN:{iso:"BYN",format:"{symbol}{amount}",symbol:"Br",offset:100,name:"Belarusian Rubl
+e"},BZD:{iso:"BZD",format:"{symbol}{amount}",symbol:"BZ$",offset:100,name:"Belize Dollar"},CAD:{iso:"CAD",format:
+"{symbol}{amount}",symbol:"$",offset:100,name:"Canadian Dollar"},CDF:{iso:"CDF",format:"{symbol}{amount}",symbol:"FC",
+offset:100,name:"Congolese Franc"},CHF:{iso:"CHF",format:"{symbol}{amount}",symbol:"Fr.",offset:100,name:"Swiss Franc"}
+,CLP:{iso:"CLP",format:"{symbol}{amount}",symbol:"$",offset:1,name:"Chilean Peso"},CNY:{iso:"CNY",format:"{symbol}{amount}
+",symbol:"￥",offset:100,name:"Chinese Yuan"},COP:{iso:"COP",format:"{symbol}{amount}",symbol:"$",offset:1,name:"Colombian 
+Peso"},CRC:{iso:"CRC",format:"{symbol}{amount}",symbol:"₡",offset:1,name:"Costa Rican Colón"},CVE:{iso:"CVE",format:"{symbol}
+{amount}",symbol:"$",offset:1,name:"Cape Verde Escudo"},CZK:{iso:"CZK",format:"{symbol}{amount}",symbol:"Kč",offset:100,name:
+"Czech Koruna"},DJF:{iso:"DJF",format:"{symbol}{amount}",symbol:"Fdj",offset:1,name:"Djiboutian Franc"},DKK:{iso:"DKK",format:"{
+symbol}{amount}",symbol:"kr.",offset:100,name:"Danish Krone"},DOP:{iso:"DOP",format:"{symbol}{amount}",symbol:"RD$",offset:100
+,name:"Dominican Peso"},DZD:{iso:"DZD",format:"{symbol}{amount}",symbol:"DA",offset:100,name:"Algerian Dinar"},EGP:{iso:"EGP",
+format:"{symbol}{amount}",symbol:"ج.م.",offset:100,name:"Egyptian Pound"},ERN:{iso:"ERN",format:"{symbol}{amount}",symbol:"Nfk"
+,offset:100,name:"Eritrean Nakfa"},ETB:{iso:"ETB",format:"{symbol}{amount}",symbol:"Br",offset:100,name:"Ethiopian Birr"},EUR
+:{iso:"EUR",format:"{symbol}{amount}",symbol:"€",offset:100,name:"Euro"},FBZ:{iso:"FBZ",format:"{symbol}{amount}",symbol:"C",
+offset:100,name:"credits"},FJD:{iso:"FJD",format:"{symbol}{amount}",symbol:"FJ$",offset:100,name:"Fiji Dollar"},FKP:{iso:"FKP
+",format:"{symbol}{amount}",symbol:"£",offset:100,name:"Falkland Islands Pound"},GBP:{iso:"GBP",format:"{symbol}{amount}",
+symbol:"£",offset:100,name:"British Pound"},GEL:{iso:"GEL",format:"{symbol}{amount}",symbol:"₾",offset:100,name:"Georgian Lari"}
+,GHS:{iso:"GHS",format:"{symbol}{amount}",symbol:"GHS",offset:100,name:"Ghanaian Cedi"},GIP:{iso:"GIP",format:"{symbol}{amount}"
+,symbol:"£",offset:100,name:"Gibraltar Pound"},GMD:{iso:"GMD",format:"{symbol}{amount}",symbol:"D",offset:100,name:"
+Gambian Dalasi"},GNF:{iso:"GNF",format:"{symbol}{amount}",symbol:"FG",offset:1,name:"Guinean Franc"},GTQ
+:{iso:"GTQ",format:"{symbol}{amount}",symbol:"Q",offset:100,name:"Guatemalan Quetzal"},GYD:{iso:"GYD",format:"{symbol
+}{amount}",symbol:"G$",offset:100,name:"Guyanese Dollar"},HKD:{iso:"HKD",format:"{symbol}{amount}",symbol:"$",offset:
+100,name:"Hong Kong Dollar"},HNL:{iso:"HNL",format:"{symbol}{amount}",symbol:"L.",offset:100,name:
+"Honduran Lempira"
