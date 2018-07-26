@@ -1,0 +1,31 @@
+<li class='level0 nav-1 level-top parent'><a href='https://www.aiconics.com/crimping-tools-special-purpose-tools.html' class='level-top'><span>Crimping Tools</span></a></li> 
+    
+    <!--         	
+				  <ul>
+			          </ul>
+         --> 
+    
+    <!--?php echo "<li class='level0 nav-1 level-top parent'><a href='".$myURL."ordering' class='level-top'><span>".$this->__('Ordering')."</span></a></li>"; ?--> 
+    
+    <!--?php echo "<li class='level0 nav-1 level-top parent'><a href='".$myURL."about-us' class='level-top'><span>".$this->__('About Us')."</span></a></li>"; ?--> 
+    <!--?php echo "<li class='level0 nav-1 level-top parent'><a href='".$myURL."contact-aiconics' class='level-top'><span>".$this->__('Contact Us')."</span></a></li>"; ?--> 
+    
+    </li>  </ul>
+</div>
+                        <div class="main col2-left-layout">
+            <div class="col-main">
+                <div class="std"><table border="0">
+<tbody>
+<tr>
+<td colspan="2"><img alt="Military, Aerospace &amp; Industrial Electrical Interconnect Products" src="https://www.aiconics.com/media/wysiwyg/aiconics-home-image.jpg" title="Military, Aerospace &amp; Industrial Electrical Interconnect Products" /></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="./contact-insertion-extraction-tools.html" rel="canonical"><br /> <img alt="Contact Insertion/Extraction Tools" src="https://www.aiconics.com/media/wysiwyg/contact-insertion-extraction-tools.jpg" title="Contact Insertion/Extraction Tools" width="240" /></a></td>
+<td style="text-align: center;"><a href="./connector-sealing-plugs.html" rel="canonical"><img alt="Connector Sealing Plugs" src="https://www.aiconics.com/media/wysiwyg/group-MS27488-xx-2-3.jpg" title="Connector Sealing Plugs" width="240" /></a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="./contact-insertion-extraction-tools.html" rel="canonical">Contact Insertion/Extraction Tools</a></td>
+<td style="text-align: center;"><a href="./connector-sealing-plugs.html" rel="canonical">Connector&nbsp;Sealing Plugs</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="./mil-spec-pin-socket-contacts.html" rel="canonical"><br /> <img alt="Mil Spec Pin &amp; Socket Contacts" src="https://www.aiconics.com/media/wysiwyg/Deustch-Pin-Socket-Contacts.jpg" title="Mil Spec Pin &amp; Socket Contacts" width="240" /></a></td>
