@@ -1,0 +1,198 @@
+BEGIN;
+
+SAVEPOINT cockroach_restart;
+
+CREATE TABLE groups (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+gid VARCHAR,
+description VARCHAR,
+PRIMARY KEY (id),
+UNIQUE (gid)
+);
+
+CREATE TABLE resources (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+rid VARCHAR,
+description VARCHAR,
+PRIMARY KEY (id),
+UNIQUE (rid)
+);
+
+CREATE TABLE users (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+uid VARCHAR,
+passwordhash VARCHAR,
+utype VARCHAR(7),
+description VARCHAR,
+is_remote BOOLEAN,
+PRIMARY KEY (id),
+UNIQUE (uid),
+CONSTRAINT usertype CHECK (utype IN ('regular', 'service'))
+);
+
+CREATE TABLE configs (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+key VARCHAR,
+value VARCHAR,
+PRIMARY KEY (id),
+UNIQUE (key)
+);
+
+CREATE TABLE user_groups (
+user_id INTEGER NOT NULL,
+group_id INTEGER NOT NULL,
+PRIMARY KEY (user_id, group_id),
+UNIQUE (user_id, group_id)
+);
+
+CREATE TABLE aces (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+user_id INTEGER,
+group_id INTEGER,
+resource_id INTEGER,
+rid VARCHAR,
+resource_description VARCHAR,
+gid VARCHAR,
+actions TEXT,
+PRIMARY KEY (id),
+CONSTRAINT user_resource_unique UNIQUE (user_id, resource_id),
+CONSTRAINT group_resource_unique UNIQUE (group_id, resource_id)
+);
+
+CREATE INDEX aces_resource_id_asc ON aces (resource_id ASC);
+
+CREATE INDEX aces_user_id_rid_actions_resource_description_asc ON aces (user_id ASC, rid ASC, actions ASC, resource_description ASC);
+
+CREATE INDEX aces_group_id_asc_resource_id_asc_actions_asc ON aces (group_id ASC, resource_id ASC, actions ASC);
+
+CREATE INDEX aces_group_id_rid_actions_resource_description_gid_asc ON aces (group_id ASC, rid ASC, actions ASC, resource_description ASC, gid ASC);
+
+CREATE INDEX aces_user_id_asc_resource_id_asc_actions_asc ON aces (user_id ASC, resource_id ASC, actions ASC);
+
+CREATE TABLE alembic_version (
+version_num VARCHAR(32) NOT NULL,
+CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num)
+);
+
+INSERT INTO alembic_version (version_num) VALUES ('d3d471b75e78') RETURNING alembic_version.version_num;
+
+INSERT INTO users (uid, passwordhash, utype, description, is_remote) VALUES ('bootstrapuser', '$6$rounds=656000$Ddm1dA4kl0J7gsdN$wmBHwxTBCMHxgYDZ8hSFifdOyQWVmPxgAQPUojKC1uFdR3kVXFFLmXlxIhk.vlwrJ7KqHX5qHOSwOebP9VwBK/', 'regular', 'bootstrapuser', 'false') RETURNING users.id;
+
+ROLLBACK TO SAVEPOINT cockroach_restart;
+
+CREATE TABLE groups (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+gid VARCHAR,
+description VARCHAR,
+PRIMARY KEY (id),
+UNIQUE (gid)
+);
+
+CREATE TABLE resources (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+rid VARCHAR,
+description VARCHAR,
+PRIMARY KEY (id),
+UNIQUE (rid)
+);
+
+CREATE TABLE users (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+uid VARCHAR,
+passwordhash VARCHAR,
+utype VARCHAR(7),
+description VARCHAR,
+is_remote BOOLEAN,
+PRIMARY KEY (id),
+UNIQUE (uid),
+CONSTRAINT usertype CHECK (utype IN ('regular', 'service'))
+);
+
+CREATE TABLE configs (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+key VARCHAR,
+value VARCHAR,
+PRIMARY KEY (id),
+UNIQUE (key)
+);
+
+CREATE TABLE user_groups (
+user_id INTEGER NOT NULL,
+group_id INTEGER NOT NULL,
+PRIMARY KEY (user_id, group_id),
+UNIQUE (user_id, group_id)
+);
+
+CREATE TABLE aces (
+id INTEGER DEFAULT unique_rowid() NOT NULL,
+user_id INTEGER,
+group_id INTEGER,
+resource_id INTEGER,
+rid VARCHAR,
+resource_description VARCHAR,
+gid VARCHAR,
+actions TEXT,
+PRIMARY KEY (id),
+CONSTRAINT user_resource_unique UNIQUE (user_id, resource_id),
+CONSTRAINT group_resource_unique UNIQUE (group_id, resource_id)
+);
+
+CREATE INDEX aces_resource_id_asc ON aces (resource_id ASC);
+
+CREATE INDEX aces_user_id_rid_actions_resource_description_asc ON aces (user_id ASC, rid ASC, actions ASC, resource_description ASC);
+
+CREATE INDEX aces_group_id_asc_resource_id_asc_actions_asc ON aces (group_id ASC, resource_id ASC, actions ASC);
+
+CREATE INDEX aces_group_id_rid_actions_resource_description_gid_asc ON aces (group_id ASC, rid ASC, actions ASC, resource_description ASC, gid ASC);
+
+CREATE INDEX aces_user_id_asc_resource_id_asc_actions_asc ON aces (user_id ASC, resource_id ASC, actions ASC);
+
+CREATE TABLE alembic_version (
+version_num VARCHAR(32) NOT NULL,
+CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num)
+);
+
+INSERT INTO alembic_version (version_num) VALUES ('d3d471b75e78') RETURNING alembic_version.version_num;
+
+INSERT INTO users (uid, passwordhash, utype, description, is_remote) VALUES ('bootstrapuser', '$6$rounds=656000$Ddm1dA4kl0J7gsdN$wmBHwxTBCMHxgYDZ8hSFifdOyQWVmPxgAQPUojKC1uFdR3kVXFFLmXlxIhk.vlwrJ7KqHX5qHOSwOebP9VwBK/', 'regular', 'bootstrapuser', 'false') RETURNING users.id;
+
+RELEASE SAVEPOINT cockroach_restart;
+
+COMMIT;
+What did you expect to see?
+I expect a user in the users table if it exists, or no users and no tables:
+./cockroach sql --insecure --database=testdb -e "select * from users"
+# Server version: CockroachDB CCL v1.1.7 (linux amd64, built 2018/03/26 15:56:41, go1.8.3) (same version as client)
+# Cluster ID: 69f52c38-6ee2-4455-99ff-240b00620ed3
++--------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+---------+---------------+-----------+
+|         id         |      uid      |                                                       passwordhash                                                       |  utype  |  description  | is_remote |
++--------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+---------+---------------+-----------+
+| 339363531251482625 | bootstrapuser | $6$rounds=656000$Ddm1dA4kl0J7gsdN$wmBHwxTBCMHxgYDZ8hSFifdOyQWVmPxgAQPUojKC1uFdR3kVXFFLmXlxIhk.vlwrJ7KqHX5qHOSwOebP9VwBK/ | regular | bootstrapuser | false     |
++--------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+---------+---------------+-----------+
+(1 row)
+What did you see instead?
+No user in the database, but tables are present:
+./cockroach sql --insecure --database=testdb -e "select * from users"
+# Server version: CockroachDB CCL v1.1.7 (linux amd64, built 2018/03/26 15:56:41, go1.8.3) (same version as client)
+# Cluster ID: ad6ab311-a538-400e-a479-9b47122d8dc4
++----+-----+--------------+-------+-------------+-----------+
+| id | uid | passwordhash | utype | description | is_remote |
++----+-----+--------------+-------+-------------+-----------+
++----+-----+--------------+-------+-------------+-----------+
+(0 rows)
+
+./cockroach sql --insecure --database=testdb -e "show tables"
+# Server version: CockroachDB CCL v1.1.7 (linux amd64, built 2018/03/26 15:56:41, go1.8.3) (same version as client)
+# Cluster ID: ad6ab311-a538-400e-a479-9b47122d8dc4
++-----------------+
+|      Table      |
++-----------------+
+| aces            |
+| alembic_version |
+| configs         |
+| groups          |
+| resources       |
+| user_groups     |
+| users           |
++-----------------+
+(7 rows)
